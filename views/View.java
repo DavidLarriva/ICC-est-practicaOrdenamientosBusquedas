@@ -1,125 +1,90 @@
-
 package views;
+
+
 import java.util.Scanner;
-
 import models.Person;
+
 public class View {
+    private Scanner scanner;
 
-    Scanner sc = new Scanner(System.in);
+    public View() {
+        scanner = new Scanner(System.in);
+    }
 
+    
     public int showMenu() {
-
-        System.out.println(" MENU ");
-        System.out.println("Opcion 1: Ingresar Personas ");
-        System.out.println("Opcion 2: ");
-        System.out.println("Opcion 100: Regresar");
+        System.out.println(" MENU  ");
         System.out.println();
-        System.out.println("Ingrese una opcion ");
+        System.out.println("1. Ingresar personas");
+        System.out.println("2. Agregar persona");
+        System.out.println("3. Ordenar personas");
+        System.out.println("4. Buscar persona");
+        System.out.println("100. Salir");
+        System.out.println("");
+        System.out.print("Seleccione una opción: ");
+        return scanner.nextInt();
+    }
 
-        int  opcion = sc.nextInt();
-        return opcion;
+    public int selectSortingMethod() {
+        System.out.println(" METODOS DE ORDENAMIENTO ");
+        System.out.println();
+        System.out.println("1. Ordenar por Nombre (Burbuja)");
+        System.out.println("2. Ordenar por Nombre (Selección)");
+        System.out.println("3. Ordenar por Edad (Inserción)");
+        System.out.println("4. Ordenar por Nombre (Inserción)");
+        System.out.println("");
+        System.out.print("Seleccione un método: ");
+        return scanner.nextInt();
+    }
 
 
-
+    public int selectSearchCriterion() {
+        System.out.println(" CRITERIOS DE BUSQUEDA ");
+        System.out.println("1. Buscar por Edad");
+        System.out.println("2. Buscar por Nombre");
+        System.out.println();
+        System.out.print("Seleccione: ");
+        return scanner.nextInt();
     }
 
     public Person inputPerson() {
         String name = inputName();
         int age = inputAge();
-
-        
-
-        return new Person(name,age);
-
-        
-
+        return new Person(name, age);
     }
 
-    private int inputAge() {
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese la edad ");
-        int age = sc.nextInt();
-        return age;
-    }
 
-    private String inputName() {
-        System.out.println("Ingrese el nombre de la persona");
-        String name = sc.nextLine();
-        return name;
-    }
-
-    public int selectSortingMethod(){
-        System.out.println("Select sorting criterion: ");
-        System.out.println("1:  Name");
-        System.out.println("2:  Age");
-
-        int  opcion = sc.nextInt();
-        return opcion;
-
-
-
-    }
-
-    public int selectSearchCriterion(){
-        System.out.println("Select search criterion: ");
-        System.out.println("1:  Name");
-        System.out.println("2:  Age");
-        int   opcion = sc.nextInt();
-        return opcion;
-
-    }
-
-    public void displayPersons(Person[] personsList) {
-        for (Person person : personsList) {
-            System.out.println(person.toString());
+    public void displayPersons(Person[] personas) {
+        System.out.println(" Lista de Personas ");
+        for (Person person : personas) {
+            System.out.println(person);
         }
     }
 
     public void displaySearchResult(Person person) {
-
-    }
-
-
-
-    public int crearYvalidarNumero (String mensaje) {
-        System.out.println(mensaje);
-        Scanner sc = new Scanner(System.in);
-        boolean numeroValido = false;
-        int numero =0;
-
-    while(!numeroValido) {
-        if(sc.hasNextInt()) {
-            numero = sc.nextInt();
-
-            if (numero > 0){
-                numeroValido = true;
-            }else {
-                System.out.println("Error el numero debe ser mayor a 0");
-            }
+        if (person != null) {
+            System.out.println("Persona encontrada: " + person);
         } else {
-            System.out.println("Error no puedes ingresar ni letras ni simbolos");
-            sc.next();
+            System.out.println("No se encontró ninguna persona ");
         }
-
-        
-
     }
-
-    return numero;
-
-
-        
-
-
-
-    }
-
-    public void showMessage(String string) {
-        System.out.println(string);
-    }
-
-
-
-
     
+    public int inputAge() {
+        System.out.print("Ingrese la edad: ");
+        return scanner.nextInt();
+    }
+
+    public String inputName() {
+        System.out.print("Ingrese el nombre: ");
+        return scanner.next();
+    }
+
+    public int inputInt(String message) {
+        System.out.print(message);
+        return scanner.nextInt();
+    }
+
+    public void showMessage(String message) {
+        System.out.println(message);
+    }
 }
