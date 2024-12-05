@@ -16,9 +16,13 @@ public class View {
         System.out.println(" MENU  ");
         System.out.println();
         System.out.println("1. Ingresar personas");
+        System.out.println();
         System.out.println("2. Agregar persona");
+        System.out.println();
         System.out.println("3. Ordenar personas");
+        System.out.println();
         System.out.println("4. Buscar persona");
+        System.out.println();
         System.out.println("100. Salir");
         System.out.println("");
         System.out.print("Seleccione una opción: ");
@@ -29,8 +33,11 @@ public class View {
         System.out.println(" METODOS DE ORDENAMIENTO ");
         System.out.println();
         System.out.println("1. Ordenar por Nombre (Burbuja)");
+        System.out.println();
         System.out.println("2. Ordenar por Nombre (Selección)");
+        System.out.println();
         System.out.println("3. Ordenar por Edad (Inserción)");
+        System.out.println();
         System.out.println("4. Ordenar por Nombre (Inserción)");
         System.out.println("");
         System.out.print("Seleccione un método: ");
@@ -40,7 +47,9 @@ public class View {
 
     public int selectSearchCriterion() {
         System.out.println(" CRITERIOS DE BUSQUEDA ");
+        System.out.println();
         System.out.println("1. Buscar por Edad");
+        System.out.println();
         System.out.println("2. Buscar por Nombre");
         System.out.println();
         System.out.print("Seleccione: ");
